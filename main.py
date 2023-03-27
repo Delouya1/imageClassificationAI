@@ -39,4 +39,13 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=
 
 model.fit(training_images, training_labels, epochs=10, validation_data=(test_images, test_labels))  # train the model
 
+loss, accuracy = model.evaluate(test_images, test_labels)  # evaluate the model
+print("Loss: ", loss)
+print("Accuracy: ", accuracy)
+
+model.save('model.h5')  # save the mode
+model = tf.keras.models.load_model('model.h5')  # load the model
+
+
+
 
